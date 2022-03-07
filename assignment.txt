@@ -1,0 +1,49 @@
+#include<stdio.h>
+#include<stdlib.h>
+enum check{found,not_found};
+enum check str_f(char*str1,int size,char c)
+{
+    enum check s;
+    int i;
+    for(i=0;i<size;i++)
+    {
+        if(str1[i]==c)
+        {
+          s=found;
+        }
+    }
+    if(s==found)
+    {
+        return s;
+    }
+    else
+      {
+          s=not_found;
+        return s;
+      }
+}
+    
+int main()
+{
+    char c,z;
+    enum check y;
+    int n,size;
+    char* str;
+    printf("enter the no of charater\n");
+    scanf("%d",&n);
+    size=n+1;
+    str=(char*)malloc(sizeof(char)*size);
+    printf("enter the string\n");
+    scanf("%s",str);
+    printf("enter the charater to search\n");
+    scanf("%s",&c);
+    y=str_f(str,size,c);
+    if(y==found)
+    {
+    printf("found\n");
+    }
+    else if(y==not_found)
+    {
+    printf("Not Found");
+    }
+}
